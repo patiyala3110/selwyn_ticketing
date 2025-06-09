@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Selwyn Event Ticketing - Events{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Events</title>
+</head>
+<body>
+    <h1>Future Events</h1>
+    <ul>
+        {% for event in events %}
+        <li>
+            <strong>{{ event.event_name }}</strong><br>
+            Date: {{ event.event_date.strftime('%d-%m-%Y') }}<br>
+
+            Capacity: {{ event.capacity }} tickets remaining
+        </li>
+        {% else %}
+        <p>No future events available.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

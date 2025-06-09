@@ -29,7 +29,6 @@ CREATE TABLE ticket_sales (
     FOREIGN KEY (event_id) REFERENCES events(event_id)
 );
 
--- Insert Data into Customers Table
 INSERT INTO customers (customer_id, first_name, family_name, date_of_birth, email)
 VALUES
 (1, 'Simon', 'Charles', '1952-07-15', 'simon@charles.nz'),

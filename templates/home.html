@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Selwyn Event Ticketing - Home {% endblock %}
+{% block title %}Selwyn Event Ticketing - Home{% endblock %}
 
 {% block content %}
 
-<p>Home </p>
+<h1>Welcome to Selwyn Event Ticketing!</h1>
 
+<p>Book your event tickets quickly and easily. Explore exciting events happening near</p>
 
-<p>Add some brief text and an image here </p>
-
-
+<img src="{{ url_for('static', filename='images/event1.jpg') }}" alt="Event Tickets" style="width:60%;margin-top:20px;">
 
 {% endblock %}

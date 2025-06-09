@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Tickets{% endblock %}
+
+{% block content %}
+    <h1>{{ customer.first_name }} {{ customer.family_name }} - Ticket Information</h1>
+
+    <h3>Customer Information</h3>
+    <ul>
+        <li><strong>First Name:</strong> {{ customer.first_name }}</li>
+        <li><strong>Family Name:</strong> {{ customer.family_name }}</li>
+        <li><strong>Date of Birth:</strong> {{ customer.date_of_birth }}</li>
+        <li><strong>Email:</strong> {{ customer.email }}</li>
+    </ul>
+
+    <h3>Tickets Purchased</h3>
+    {% if tickets %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Event Date</th>
+                    <th>Tickets Purchased</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.event_name }}</td>
+                    <td>{{ ticket.event_date }}</td>
+                    <td>{{ ticket.tickets_purchased }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>This customer has not purchased any tickets.</p>
+    {% endif %}
+
+    <a href="{{ url_for('customers') }}" class="btn btn-secondary">Back to Customer List</a>
+{% endblock %}

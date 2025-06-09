@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Add Customer - Selwyn Event Ticketing{% endblock %}
+
+{% block content %}
+<h2>Add a New Customer</h2>
+<form method="POST" action="{{ url_for('add_customer') }}">
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="family_name">Family Name</label>
+        <input type="text" id="family_name" name="family_name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="event_id">Event</label>
+        <select id="event_id" name="event_id" class="form-control" required>
+            <option value="">Choose an Event</option>
+            {% for event in events %}
+                <option value="{{ event['event_id'] }}">{{ event['event_name'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Customer</button>
+</form>
+{% endblock %}
